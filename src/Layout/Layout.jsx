@@ -17,9 +17,11 @@ function Layout() {
 
   return (
     <>
+    <div className="scroll-smooth w-full h-full">
       <Navbar scrolled={scrolled}/>
       <Outlet scrolled={scrolled}/>
       <Footer />
+    </div>
     </>
   );
 }
