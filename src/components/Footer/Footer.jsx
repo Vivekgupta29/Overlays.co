@@ -4,17 +4,20 @@ function Footer() {
   return (
     <>
       <div className="w-full bg-white">
-        <div className="grid grid-cols-1 sm:grid-cols-3 px-10 py-5">
-          <div className="px-12">
-            <h3 className="text-center text-2xl">About Us</h3>
-            <div className="mt-4 px-12 text-justify">
+        <div className="md:flex md:px-10 py-5">
+          <div className="mt-4 flex-1">
+            <h3 className="text-center text-2xl font-bold">About Us</h3>
+            <div className="mt-4 flex items-center justify-center">
+              <div className="px-12 md:px-0 text-justify max-w-sm md:max-w-[70%]">
+
               Dosto Kya About Us Padhne Aaye ho Shlok Bhai ke Aage koi kuch bol
               sakta hai kya?
+              </div>
             </div>
           </div>
-          <div className="">
-            <h3 className="text-center text-2xl">Our Policies</h3>
-            <div className="mt-4 ml-[9em]">
+          <div className="mt-4 flex-1">
+            <h3 className="text-center text-2xl font-bold">Our Policies</h3>
+            <div className="mt-4 flex items-center justify-center">
               <ul className="text-left ">
                 <li className="customlist hover:text-customOverlaysColor cursor-pointer">
                   {" "}
@@ -39,8 +42,8 @@ function Footer() {
               </ul>
             </div>
           </div>
-          <div className="">
-            <h3 className="text-center text-2xl">Follow Us</h3>
+          <div className="mt-4 flex-1">
+            <h3 className="text-center text-2xl font-bold">Follow Us</h3>
             <div className="mt-4">
               <div className="flex items-center justify-center space-x-3 cursor-pointer">
                 {/* <!-- Facebook --> */}

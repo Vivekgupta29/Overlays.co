@@ -3,10 +3,12 @@ import OverlaysLogo from "../../assets/Logos/android-chrome-192x192.png";
 import { useContext } from "react";
 function Navbar({ scrolled }) {
 
-  const [NavIsOpen,setNavIsOpen] = useState(false)
+  const [NavIsOpen, setNavIsOpen] = useState(false)
   return (
-    <div className={`${scrolled > 1 ? "sticky top-0 bg-white text-black" : "absolute bg-transparent text-white hover:bg-white hover:text-black"} z-10 w-full h-16 flex items-center justify-center transform- duration-500`}>
-      <div className="flex justify-around items-center w-full">
+    <div className={`${scrolled > 1 ? "sticky top-0 bg-white text-black" : "absolute bg-transparent text-white hover:bg-white hover:text-black"} group/navbar z-10 w-full h-16 flex items-center justify-center transform- duration-500`}>
+      <div className="flex md:justify-around justify-between px-4 md:px-0 items-center w-full">
+        <div className="md:hidden">
+        </div>
         <div className="Logo cursor-pointer">
           <img src={OverlaysLogo} alt="" className="h-8 w-8" />
         </div>
@@ -14,10 +16,10 @@ function Navbar({ scrolled }) {
           onClick={() => setNavIsOpen(!NavIsOpen)}
           type="button"
           id="mobile-button"
-          className="flex items-center p-1 w-10 h-10 justify-center text-sm rounded-lg md:hidden
-            hover:bg-cyan-500 duration-500 
-              focus:outline-none ring-1  
-            focus:ring-cyan-400 focus:bg-gray-900"
+          className={`${scrolled > 1 ? "bg-customOverlaysColor" : ""} flex items-center p-1 w-10 h-10 justify-center text-sm md:hidden
+            hover:bg-cyan-500 group-hover/navbar:bg-customOverlaysColor
+              focus:outline-none 
+            `}
         >
           <div className="flex flex-col flex-wrap items-center justify-evenly w-full h-full cursor-pointer">
             <div
@@ -40,7 +42,8 @@ function Navbar({ scrolled }) {
             ></div>
           </div>
         </button>
-        <div className="hidden md:block Navigationss">
+        <div className="absolute left-0  top-0 bg-white h-[100vh]  
+        md:block Navigationss">
           <ul className="flex space-x-4">
             <li className="hover:text-customOverlaysColor cursor-pointer nav-item">Home</li>
             <li className="hover:text-customOverlaysColor cursor-pointer nav-item">All Products</li>
