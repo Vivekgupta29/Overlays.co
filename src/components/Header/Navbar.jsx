@@ -42,9 +42,20 @@ function Navbar({ scrolled }) {
             ></div>
           </div>
         </button>
-        <div className="absolute left-0  top-0 bg-white h-[100vh]  
-        md:block Navigationss">
-          <ul className="flex space-x-4">
+        <div className={`${NavIsOpen
+                ? "absolute left-0  w-full h-[87vh] duration-500 text-black "
+                : "absolute left-[-100%] duration-500"
+                }
+                w-full h-[88vh] bg-white top-[4em] 
+        md:bg-transparent md:static 
+        font-medium text-lg
+        md:h-auto md:w-auto
+        md:block Navigationss`}>
+          <ul className={`${NavIsOpen
+                ? "space-y-5 md:space-y-0"
+                : "space-y-5 md:space-y-0"
+                }
+                flex flex-col p-10  md:p-0 md:flex-row md:space-x-4`}>
             <li className="hover:text-customOverlaysColor cursor-pointer nav-item">Home</li>
             <li className="hover:text-customOverlaysColor cursor-pointer nav-item">All Products</li>
             <li className="hover:text-customOverlaysColor cursor-pointer nav-item">Men</li>
