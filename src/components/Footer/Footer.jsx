@@ -10,8 +10,8 @@ function Footer() {
             <div className="mt-4 flex items-center justify-center">
               <div className="px-12 md:px-0 text-justify max-w-sm md:max-w-[70%]">
 
-              Dosto Kya About Us Padhne Aaye ho Shlok Bhai ke Aage koi kuch bol
-              sakta hai kya?
+                Dosto Kya About Us Padhne Aaye ho Shlok Bhai ke Aage koi kuch bol
+                sakta hai kya?
               </div>
             </div>
           </div>
@@ -70,12 +70,12 @@ function Footer() {
                 <svg
                   className="h-7 w-7 hover:text-customOverlaysColor"
                   fill="currentColor"
-                  viewbox="0 0 24 24"
+                  viewBox="0 0 24 24"
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  xml:space="preserve"
-                  xmlns:serif="http://www.serif.com/"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  xmlSpace="preserve"
+                  xmlnsserif="http://www.serif.com/"
                 >
                   <path
                     id="telegram-1"

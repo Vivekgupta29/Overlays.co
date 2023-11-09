@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import OverlaysLogo from "../../assets/Logos/android-chrome-192x192.png";
-import { useContext } from "react";
-function Navbar({ scrolled }) {
+import { NavLink } from "react-router-dom";
+import { useIsNavOpen, useScrollValue } from "../../Contexts";
 
-  const [NavIsOpen, setNavIsOpen] = useState(false)
+
+function Navbar() {
+  const { scrolled } = useScrollValue();
+  const { IsNavOpen, ChangeNavIsOpen } = useIsNavOpen()
+
   return (
     <div className={`${scrolled > 1 ? "sticky top-0 bg-white text-black" : "absolute bg-transparent text-white hover:bg-white hover:text-black"} group/navbar z-10 w-full h-16 flex items-center justify-center transform- duration-500`}>
       <div className="flex md:justify-around justify-between px-4 md:px-0 items-center w-full">
@@ -13,7 +17,7 @@ function Navbar({ scrolled }) {
           <img src={OverlaysLogo} alt="" className="h-8 w-8" />
         </div>
         <button
-          onClick={() => setNavIsOpen(!NavIsOpen)}
+          onClick={() => ChangeNavIsOpen()}
           type="button"
           id="mobile-button"
           className={`${scrolled > 1 ? "bg-customOverlaysColor" : ""} flex items-center p-1 w-10 h-10 justify-center text-sm md:hidden
@@ -23,51 +27,68 @@ function Navbar({ scrolled }) {
         >
           <div className="flex flex-col flex-wrap items-center justify-evenly w-full h-full cursor-pointer">
             <div
-              className={`${NavIsOpen
+              className={`${IsNavOpen
                 ? "transform rotate-45 translate-y-[0.5rem] h-[0.1em]"
                 : ""
                 } w-7 h-[0.2em] bg-white duration-500`}
             ></div>
 
             <div
-              className={`${NavIsOpen ? "opacity-0" : "opacity-100"
+              className={`${IsNavOpen ? "opacity-0" : "opacity-100"
                 } w-5 ml-2 h-[0.1em] bg-white duration-500`}
             ></div>
 
             <div
-              className={`${NavIsOpen
+              className={`${IsNavOpen
                 ? "transform rotate-[-45deg] translate-y-[-0.5rem] h-[0.1em]"
                 : ""
                 } w-7 h-[0.2em] bg-white duration-500`}
             ></div>
           </div>
         </button>
-        <div className={`${NavIsOpen
-                ? "absolute left-0  w-full h-[87vh] duration-500 text-black "
-                : "absolute left-[-100%] duration-500"
-                }
+        <div className={`${IsNavOpen
+          ? "absolute left-0  w-full h-[87vh] duration-500 text-black "
+          : "absolute left-[-100%] duration-500"
+          }
                 w-full h-[88vh] bg-white top-[4em] 
         md:bg-transparent md:static 
         font-medium text-lg
         md:h-auto md:w-auto
         md:block Navigationss`}>
-          <ul className={`${NavIsOpen
-                ? "space-y-5 md:space-y-0"
-                : "space-y-5 md:space-y-0"
-                }
+          <ul className={`${IsNavOpen
+            ? "space-y-5 md:space-y-0"
+            : "space-y-5 md:space-y-0"
+            }
                 flex flex-col p-10  md:p-0 md:flex-row md:space-x-4`}>
-            <li className="hover:text-customOverlaysColor cursor-pointer nav-item">Home</li>
-            <li className="hover:text-customOverlaysColor cursor-pointer nav-item">All Products</li>
-            <li className="hover:text-customOverlaysColor cursor-pointer nav-item">Men</li>
-            <li className="hover:text-customOverlaysColor cursor-pointer nav-item">Women</li>
-            <li className="hover:text-customOverlaysColor cursor-pointer nav-item">Rich Cotton</li>
-            <li className="hover:text-customOverlaysColor cursor-pointer nav-item">Contact Us</li>
+            <NavLink to={""} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+              <li className="">Home</li>
+            </NavLink>
+
+            <NavLink to={"allproducts"} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+              <li className="">All Products</li>
+            </NavLink>
+
+            <NavLink to={"men"} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+              <li className="">Men</li>
+            </NavLink>
+
+            <NavLink to={"women"} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+              <li className="">Women</li>
+            </NavLink>
+
+            <NavLink to={"richcotton"} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+              <li className="">Rich Cotton</li>
+            </NavLink>
+
+            <NavLink to={"contact"} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+              <li className="">Contact Us</li>
+            </NavLink>
           </ul>
         </div>
         <div className="hidden md:flex logincart space-x-5">
           <div>
             <svg
-              class="w-6 h-6 hover:text-customOverlaysColor cursor-pointer"
+              className="w-6 h-6 hover:text-customOverlaysColor cursor-pointer"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -84,7 +105,7 @@ function Navbar({ scrolled }) {
           </div>
           <div>
             <svg
-              class="w-6 h-6 hover:text-customOverlaysColor cursor-pointer"
+              className="w-6 h-6 hover:text-customOverlaysColor cursor-pointer"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -101,7 +122,7 @@ function Navbar({ scrolled }) {
           </div>
           <div>
             <svg
-              class="w-6 h-6 hover:text-customOverlaysColor cursor-pointer"
+              className="w-6 h-6 hover:text-customOverlaysColor cursor-pointer"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
