@@ -9,7 +9,10 @@ function Navbar() {
   const { IsNavOpen, ChangeNavIsOpen } = useIsNavOpen()
 
   return (
-    <div className={`${scrolled > 1 ? "sticky top-0 bg-white text-black" : "absolute bg-transparent text-white hover:bg-white hover:text-black"} group/navbar z-10 w-full h-16 flex items-center justify-center transform- duration-500`}>
+    <div className={`${scrolled > 1
+      ? "sticky top-0 bg-white text-black md:bg-white md:text-black"
+      : "absolute bg-transparent hover:bg-white hover:text-black md:bg-transparent md:text-white"}  
+    group/navbar z-10 w-full h-16 flex items-center justify-center duration-500`}>
       <div className="flex md:justify-around justify-between px-4 md:px-0 items-center w-full">
         <div className="md:hidden">
         </div>
@@ -47,12 +50,13 @@ function Navbar() {
           </div>
         </button>
         <div className={`${IsNavOpen
-          ? "absolute left-0  w-full h-[87vh] duration-500 text-black "
-          : "absolute left-[-100%] duration-500"
+          ? "absolute left-0  w-full h-[87vh]"
+          : "absolute left-[-100%]"
           }
-                w-full h-[88vh] bg-white top-[4em] 
-        md:bg-transparent md:static 
+        w-full h-[88vh] bg-white top-[4em] 
+        duration-500
         font-medium text-lg
+        md:bg-transparent md:static 
         md:h-auto md:w-auto
         md:block Navigationss`}>
           <ul className={`${IsNavOpen
@@ -60,27 +64,27 @@ function Navbar() {
             : "space-y-5 md:space-y-0"
             }
                 flex flex-col p-10  md:p-0 md:flex-row md:space-x-4`}>
-            <NavLink to={""} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+            <NavLink to={""} onClick={() => ChangeNavIsOpen()} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
               <li className="">Home</li>
             </NavLink>
 
-            <NavLink to={"allproducts"} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+            <NavLink to={"allproducts"} onClick={() => ChangeNavIsOpen()} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
               <li className="">All Products</li>
             </NavLink>
 
-            <NavLink to={"men"} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+            <NavLink to={"men"} onClick={() => ChangeNavIsOpen()} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
               <li className="">Men</li>
             </NavLink>
 
-            <NavLink to={"women"} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+            <NavLink to={"women"} onClick={() => ChangeNavIsOpen()} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
               <li className="">Women</li>
             </NavLink>
 
-            <NavLink to={"richcotton"} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+            <NavLink to={"richcotton"} onClick={() => ChangeNavIsOpen()} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
               <li className="">Rich Cotton</li>
             </NavLink>
 
-            <NavLink to={"contact"} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
+            <NavLink to={"contact"} onClick={() => ChangeNavIsOpen()} className={`hover:text-customOverlaysColor cursor-pointer nav-item`}>
               <li className="">Contact Us</li>
             </NavLink>
           </ul>
